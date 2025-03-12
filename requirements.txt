@@ -1,0 +1,8 @@
+flask
+pyyaml
+logging
+requests
+flask_cors
+python-dotenv
+schedule
+rotatingfilehandler
