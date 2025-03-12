@@ -1,0 +1,57 @@
+logging:
+  log_file: "logs/deercard.log"
+  alert_log_file: "logs/alerts.log"
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  max_size: 5MB
+  backup_count: 5
+
+api:
+  host: "0.0.0.0"
+  port: 5000
+  enable_auth: false  # Change to true if authentication is needed
+  auth_token: "your-secure-token-here"
+
+dashboard:
+  enable: true
+  refresh_rate: 5  # In seconds
+  host: "0.0.0.0"
+  port: 8080
+
+alerting:
+  enable_email: true
+  enable_slack: true
+  enable_telegram: true
+  email:
+    smtp_server: "smtp.example.com"
+    smtp_port: 587
+    sender_email: "alerts@example.com"
+    recipient_email: "admin@example.com"
+    username: "your-email-username"
+    password: "your-email-password"
+  slack:
+    webhook_url: "https://hooks.slack.com/services/..."
+  telegram:
+    bot_token: "your-telegram-bot-token"
+    chat_id: "your-chat-id"
+
+honeypot:
+  ssh:
+    enable: true
+    port: 2222
+  web:
+    enable: true
+    port: 8081
+
+simulation:
+  enable: true
+  frequency: 30  # Seconds between fake events
+  fake_ips:
+    - "192.168.1.100"
+    - "203.0.113.42"
+    - "198.51.100.23"
+
+threat_intelligence:
+  update_frequency: "daily"  # Options: hourly, daily, weekly
+  sources:
+    - "https://example.com/threat-feed.json"
+    - "https://another-feed.com/signatures.json"
