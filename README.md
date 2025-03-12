@@ -27,7 +27,7 @@ DeerCard is a cybersecurity tool designed to detect, log, and alert on suspiciou
 ## 🚀 Installation & Deployment
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-repo/deercard.git
+git clone https://github.com/Lumiquiver/DeerCard-V1.git
 cd deercard
 ```
 
