@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeerCard Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .log-container { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <h1>DeerCard Dashboard</h1>
+    
+    <h2>Logs</h2>
+    <div class="log-container">
+        <pre id="logs">Loading...</pre>
+    </div>
+    
+    <h2>Alerts</h2>
+    <div class="log-container">
+        <pre id="alerts">Loading...</pre>
+    </div>
+    
+    <script>
+        function fetchLogs() {
+            $.getJSON("/api/logs", function(data) {
+                $("#logs").text(data.logs.join("\n"));
+            });
+        }
+        
+        function fetchAlerts() {
+            $.getJSON("/api/alerts", function(data) {
+                $("#alerts").text(data.alerts.join("\n"));
+            });
+        }
+        
+        function refreshData() {
+            fetchLogs();
+            fetchAlerts();
+        }
+        
+        $(document).ready(function() {
+            refreshData();
+            setInterval(refreshData, 5000);
+        });
+    </script>
+</body>
+</html>
